@@ -1,0 +1,16 @@
+spring:
+  main:
+    banner_mode: off
+
+project:
+  artifactId: template
+  name: Demo
+  version: X.X.X
+  description: Demo project for info endpoint
+
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}
