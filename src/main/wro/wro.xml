@@ -2,12 +2,15 @@
 <groups xmlns="http://www.isdc.ro/wro">
 	<group name="react-bootstrap">
 		<css>webjar:bootstrap/@bootstrap.version@/css/bootstrap.css</css>
+		
 		<js>webjar:jquery/@jquery.version@/jquery.js</js>
 		<js>webjar:react/@react.version@/react-with-addons.js</js>
 		<js>webjar:react/@react.version@/react-dom.js</js>
 	</group>
 	
-	<group name="bundle">
+	<group name="comments">
+		<css>file:src/main/resources/static/css/comments.css</css>
+		
 		<js>webjar:marked/@marked-lib.version@/marked.js</js>
 	</group>
 </groups>
