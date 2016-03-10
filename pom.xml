@@ -172,26 +172,6 @@
 			</plugin>
 			<!-- Resource optimization -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>clean</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<delete dir="${project.basedir}/src/main/resources/static/js/bundle" />
-								<delete dir="${project.basedir}/src/main/resources/static/js/jsx" />
-								<delete dir="${project.basedir}/src/main/resources/static/css/bundle" />
-								<delete dir="${project.basedir}/src/test/resources/static/js/compiled" />
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
@@ -231,7 +211,7 @@
 								${project.basedir}/src/main/resources/static/js
 							</sourcePath>
 							<targetPath>
-								${project.basedir}/src/main/resources/static/js/jsx
+								${project.build.directory}/classes/static/js
 							</targetPath>
 						</configuration>
 					</execution>
@@ -267,8 +247,8 @@
 				</executions>
 				<configuration>
 					<wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
-					<cssDestinationFolder>${project.basedir}/src/main/resources/static/css/bundle</cssDestinationFolder>
-					<jsDestinationFolder>${project.basedir}/src/main/resources/static/js/bundle</jsDestinationFolder>
+					<cssDestinationFolder>${project.build.directory}/classes/static/css</cssDestinationFolder>
+					<jsDestinationFolder>${project.build.directory}/classes/static/js</jsDestinationFolder>
 					<wroFile>${project.build.directory}/wro/wro.xml</wroFile>
 					<extraConfigFile>${project.basedir}/src/main/wro/wro.properties</extraConfigFile>
 				</configuration>
@@ -316,7 +296,7 @@
 						<preloadSource>/webjars/jquery.mockjax.js</preloadSource>
 						<preloadSource>${project.basedir}/src/test/resources/jasmine/config.js</preloadSource>
 					</preloadSources>
- 					<jsSrcDir>${project.basedir}/src/main/resources/static/js</jsSrcDir>
+ 					<jsSrcDir>${project.build.directory}/classes/static/js</jsSrcDir>
 					<sourceIncludes>
 						<include>**/*.js</include>
 					</sourceIncludes>
