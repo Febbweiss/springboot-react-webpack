@@ -17,7 +17,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		
+
 		<jasmine.version>2.4.1</jasmine.version>
 		<jasmine-ajax.version>3.2.0</jasmine-ajax.version>
 
@@ -40,36 +40,36 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<!-- Security -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
 		<dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
-        </dependency>
-        <!-- Persistence -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-        </dependency>
-   		<!-- Testing -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
+		</dependency>
+		<!-- Persistence -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+		</dependency>
+		<!-- Testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -92,10 +92,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.webjars</groupId>
-		    <artifactId>jquery-mockjax</artifactId>
-		    <version>1.5.3</version>
-		    <scope>test</scope>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery-mockjax</artifactId>
+			<version>1.5.3</version>
+			<scope>test</scope>
 		</dependency>
 		<!-- Monitoring -->
 		<dependency>
@@ -296,14 +296,14 @@
 						<preloadSource>/webjars/jquery.mockjax.js</preloadSource>
 						<preloadSource>${project.basedir}/src/test/resources/jasmine/config.js</preloadSource>
 					</preloadSources>
- 					<jsSrcDir>${project.build.directory}/classes/static/js</jsSrcDir>
+					<jsSrcDir>${project.build.directory}/classes/static/js</jsSrcDir>
 					<sourceIncludes>
 						<include>**/*.js</include>
 					</sourceIncludes>
- 					<sourceExcludes>
- 						<exclude>**/react-bootstrap.js</exclude>
- 						<exclude>**/app.render.js</exclude>
- 					</sourceExcludes>
+					<sourceExcludes>
+						<exclude>**/react-bootstrap.js</exclude>
+						<exclude>**/app.render.js</exclude>
+					</sourceExcludes>
 					<jsTestSrcDir>${project.basedir}/src/test/resources/static/js</jsTestSrcDir>
 					<specIncludes>
 						<include>**/*.spec.js</include>
