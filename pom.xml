@@ -9,6 +9,10 @@
 	<packaging>jar</packaging>
 	<url>http://www.open-groupe.com</url>
 
+	<scm>
+		<developerConnection>scm:git:TOFILL</developerConnection>
+	</scm>
+  
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -17,6 +21,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<maven.deploy.skip>true</maven.deploy.skip>
+		<project.scm.id>jazzhub</project.scm.id>
 
 		<jasmine.version>2.4.1</jasmine.version>
 		<jasmine-ajax.version>3.2.0</jasmine-ajax.version>
@@ -132,6 +138,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<resources>
 			<resource>
 				<directory>${project.basedir}/src/main/resources</directory>
@@ -310,6 +317,12 @@
 					</specIncludes>
 					<customRunnerTemplate>${project.basedir}/src/test/resources/jasmine/ReactJsSpecRunner.htmltemplate</customRunnerTemplate>
 				</configuration>
+			</plugin>
+			<!-- Release -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
 			</plugin>
 			<!-- Deployment -->
 			<plugin>
