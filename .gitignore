@@ -1,8 +1,7 @@
 .classpath
 .project
 .settings
-src/main/resources/static
-src/main/webapp/js/.module-cache
+src/main/resources/static/js/.module-cache
 src/test/resources/static/js/compiled
 src/test/resources/static/js/.module-cache
 target
