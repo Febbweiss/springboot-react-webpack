@@ -1,8 +1,5 @@
 package com.opengroupe.cloud.saas.domain;
 
-import groovy.transform.ToString;
-
-@ToString
 public class Comment {
 
 	private final Long id;

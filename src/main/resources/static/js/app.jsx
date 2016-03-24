@@ -59,7 +59,7 @@ var CommentForm = React.createClass({
 });
 var CommentBox = React.createClass({
 	getInitialState: function() {
-		return {data: []};
+		return {data: this.props.data || []};
 	},
 	loadCommentsFromServer: function() {
 		$.ajax({
