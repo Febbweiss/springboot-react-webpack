@@ -6,7 +6,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<name>UI service project</name>
 	<description>Default tools to build UI BFF</description>
-	<packaging>jar</packaging>
+	<packaging>${packaging.type}</packaging>
 	<url>http://www.open-groupe.com</url>
 
 	<scm>
@@ -23,6 +23,7 @@
 		<java.version>1.8</java.version>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<project.scm.id>jazzhub</project.scm.id>
+		<docker.image.prefix>opensaas</docker.image.prefix>
 
 		<jasmine.version>2.4.1</jasmine.version>
 		<jasmine-ajax.version>3.2.0</jasmine-ajax.version>
@@ -44,64 +45,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<!-- Security -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
-		</dependency>
-		<!-- Persistence -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-		</dependency>
-		<!-- Testing -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.jayway.jsonpath</groupId>
-			<artifactId>json-path</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.jayway.jsonpath</groupId>
-			<artifactId>json-path-assert</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jasmine</artifactId>
-			<version>${jasmine.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jquery-mockjax</artifactId>
-			<version>1.5.3</version>
-			<scope>test</scope>
 		</dependency>
 		<!-- Monitoring -->
 		<dependency>
@@ -222,22 +165,6 @@
 							</targetPath>
 						</configuration>
 					</execution>
-					<execution>
-						<id>Compile test resources</id>
-						<phase>process-test-resources</phase>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-						<configuration>
-							<extension>jsx</extension>
-							<sourcePath>
-								${project.basedir}/src/test/resources/static/js
-							</sourcePath>
-							<targetPath>
-								${project.basedir}/src/test/resources/static/js/compiled
-							</targetPath>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -258,64 +185,6 @@
 					<jsDestinationFolder>${project.build.directory}/classes/static/js</jsDestinationFolder>
 					<wroFile>${project.build.directory}/wro/wro.xml</wroFile>
 					<extraConfigFile>${project.basedir}/src/main/wro/wro.properties</extraConfigFile>
-				</configuration>
-			</plugin>
-			<!-- Testing -->
-			<plugin>
-				<groupId>com.github.klieber</groupId>
-				<artifactId>phantomjs-maven-plugin</artifactId>
-				<version>0.7</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>install</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<version>2.1.1</version>
-					<skip>false</skip>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.github.searls</groupId>
-				<artifactId>jasmine-maven-plugin</artifactId>
-				<version>2.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>test</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<webDriverClassName>org.openqa.selenium.phantomjs.PhantomJSDriver</webDriverClassName>
-					<webDriverCapabilities>
-						<capability>
-							<name>phantomjs.binary.path</name>
-							<value>${phantomjs.binary}</value>
-						</capability>
-					</webDriverCapabilities>
-					<preloadSources>
-						<preloadSource>/webjars/jquery.js</preloadSource>
-						<preloadSource>/webjars/react-with-addons.js</preloadSource>
-						<preloadSource>/webjars/react-dom.js</preloadSource>
-						<preloadSource>/webjars/jquery.mockjax.js</preloadSource>
-						<preloadSource>${project.basedir}/src/test/resources/jasmine/config.js</preloadSource>
-					</preloadSources>
-					<jsSrcDir>${project.build.directory}/classes/static/js</jsSrcDir>
-					<sourceIncludes>
-						<include>**/*.js</include>
-					</sourceIncludes>
-					<sourceExcludes>
-						<exclude>**/react-bootstrap.js</exclude>
-						<exclude>**/app.render.js</exclude>
-					</sourceExcludes>
-					<jsTestSrcDir>${project.basedir}/src/test/resources/static/js</jsTestSrcDir>
-					<specIncludes>
-						<include>**/*.spec.js</include>
-					</specIncludes>
-					<customRunnerTemplate>${project.basedir}/src/test/resources/jasmine/ReactJsSpecRunner.htmltemplate</customRunnerTemplate>
 				</configuration>
 			</plugin>
 			<!-- Release -->
@@ -380,19 +249,6 @@
 										<ignore></ignore>
 									</action>
 								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>com.github.klieber</groupId>
-										<artifactId>phantomjs-maven-plugin</artifactId>
-										<versionRange>[0.7,)</versionRange>
-										<goals>
-											<goal>install</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
@@ -400,4 +256,55 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	
+	<profiles>
+		<profile>
+			<id>webapp</id>
+			<activation>
+			<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<packaging.type>war</packaging.type>
+			</properties>
+		</profile>
+		<profile>
+			<id>docker</id>
+			<properties>
+				<packaging.type>jar</packaging.type>
+			</properties>
+			<build>
+				<finalName>app</finalName>
+	            <plugins>
+					<!-- Docker -->
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<version>0.2.3</version>
+						<configuration>
+							<goal>package</goal>
+							<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+							<dockerDirectory>src/main/docker</dockerDirectory>
+							<resources>
+								<resource>
+									<targetPath>/</targetPath>
+									<directory>${project.build.directory}</directory>
+									<include>${project.build.finalName}.jar</include>
+								</resource>
+							</resources>
+						</configuration>
+						<executions>
+							<execution>
+								<id>build-image</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+	            </plugins>
+            </build>
+		</profile>
+	</profiles>
+	
 </project>

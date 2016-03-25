@@ -23,11 +23,8 @@
 							<li><a href="#" th:href="@{/task}">Tasks</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li th:if="${#authorization.expression('!isAuthenticated()')}">
+							<li>
 								<a href="/signin" th:href="@{/signin}">Sign in</a>
-							</li>
-							<li th:if="${#authorization.expression('isAuthenticated()')}">
-								<a href="/logout" th:href="@{/logout}">Logout</a>
 							</li>
 						</ul>
 					</div>
