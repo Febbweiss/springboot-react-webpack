@@ -14,7 +14,7 @@ var config = {
     resolve: {
     	extensions: ['', '.js', '.jsx', '.css']
     },
-    devtool: 'sourcemaps',
+    devtool: 'source-map',
     cache: true,
     debug: true,
     output: {
@@ -24,7 +24,7 @@ var config = {
     },
     plugins: [
         new ExtractTextPlugin("../css/[name].css"),
-        new CommonsChunkPlugin("vendors.bundle.js", ["app", "vendors"]),
+        new CommonsChunkPlugin("vendors", null, true),
     ],
     module: {
         loaders: [
