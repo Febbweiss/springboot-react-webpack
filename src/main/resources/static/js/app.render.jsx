@@ -10,6 +10,7 @@ import $ from 'jquery';
 
 require('bootstrap/dist/css/bootstrap.css');
 require('../css/comments.css');
+require('../css/comments.less');
 
 global.renderClient = function (comments) {
     var data = comments || [];

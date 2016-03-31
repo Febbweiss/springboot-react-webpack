@@ -13,7 +13,7 @@ var config = {
     	vendors: [source_dir + '/js/vendors']
     },
     resolve: {
-    	extensions: ['', '.js', '.jsx', '.css']
+    	extensions: ['', '.js', '.jsx', '.css', '.less']
     },
     devtool: 'source-map',
     cache: true,
@@ -47,6 +47,10 @@ var config = {
 			{ 
 				test: /\.css$/, 
 				loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader") 
+			},
+			{
+				test: /\.less$/,
+				loader: ExtractTextPlugin.extract('style-loader', 'css-loader?!postcss-loader!less-loader')
 			},
 			{ 
             	test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 
