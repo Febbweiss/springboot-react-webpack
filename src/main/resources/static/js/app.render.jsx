@@ -8,6 +8,7 @@ import App from './app.jsx';
 
 
 require('bootstrap/dist/css/bootstrap.css');
+require('../css/comments.css');
 
 global.renderClient = function (comments) {
     var data = comments || [];

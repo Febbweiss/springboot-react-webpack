@@ -19,8 +19,7 @@ var config = {
     debug: true,
     output: {
         path: './target/classes/static/js',
-        filename: '[name].bundle.js',
-        
+        filename: '[name].bundle.js'        
     },
     plugins: [
         new ExtractTextPlugin("../css/[name].css"),
@@ -41,30 +40,21 @@ var config = {
 				test: /\.css$/, 
 				loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader") 
 			},
-            { 
-				test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff(2)?$|\.ttf$|\.wav$|\.mp3$/, 
-				loader: require.resolve("file-loader") + "?name=../[path][name].[ext]"
-			},
 			{ 
             	test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 
-            	loader: "file" 
+            	loader: "file?name=../css/[name].[ext]" 
             },
 			{ 
             	test: /\.(woff|woff2)$/, 
-            	loader:"url?prefix=font/&limit=5000" 
+            	loader:"url?prefix=font/&limit=5000&name=../css/[name].[ext]" 
             },
 			{ 
             	test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
-            	loader: "url?limit=10000&mimetype=application/octet-stream" 
+            	loader: "url?limit=10000&mimetype=application/octet-stream&&name=../css/[name].[ext]" 
             },
 			{ 
             	test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, 
-            	loader: "url?limit=10000&mimetype=image/svg+xml" 
-            },
-            {
-            	test: path.join(__dirname, '.'),
-            	exclude: /(node_modules)/,
-            	loader: 'babel-loader'
+            	loader: "url?limit=10000&mimetype=image/svg+xml&&name=../css/[name].[ext]" 
             }
         ]
     },
