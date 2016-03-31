@@ -24,10 +24,8 @@ public class ViewController {
 	@Bean
 	JavaScriptEngine nashornEngine() {
 		return new JavaScriptEngine().polyfillToNashorn()
-				.loadFromClassPath("META-INF/resources/webjars/react/0.14.7/react.min.js")
-				.loadFromClassPath("META-INF/resources/webjars/marked/0.3.2/marked.js")
-				.loadFromClassPath("static/js/app.js")
-				.loadFromClassPath("static/js/app.render.js");
+				.loadFromClassPath("static/js/vendors.bundle.js")
+				.loadFromClassPath("static/js/app.bundle.js");
 	}
 	
 	@Autowired

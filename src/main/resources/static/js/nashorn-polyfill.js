@@ -1,6 +1,8 @@
-var global = this;
+var global = window = this;
 
-var console = {};
-console.debug = print;
-console.warn = print;
-console.log = print;
+var console = {
+	debug: print,
+	warn: print,
+	log: print,
+	error: print
+};

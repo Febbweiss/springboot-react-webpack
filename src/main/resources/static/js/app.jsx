@@ -1,5 +1,10 @@
 'use strict';
 
+var React		= require('react'),
+	ReactDOM	= require('react-dom'),
+	marked		= require('marked'),
+	$			= require('jquery');
+
 var Comment = React.createClass({
 	rawMarkup: function() {
 		var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
@@ -57,6 +62,7 @@ var CommentForm = React.createClass({
 		);
 	}
 });
+
 var CommentBox = React.createClass({
 	getInitialState: function() {
 		return {data: this.props.data || []};
@@ -121,3 +127,10 @@ var CommentList = React.createClass({
 		)
 	}
 });
+
+module.exports = {
+	CommentBox: CommentBox,
+	CommentList: CommentList,
+	CommentForm: CommentForm,
+	Comment: Comment
+};

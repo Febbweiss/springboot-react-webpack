@@ -1,6 +1,7 @@
 .classpath
 .project
 .settings
+node_modules
 src/main/resources/static/js/.module-cache
 src/test/resources/static/js/compiled
 src/test/resources/static/js/.module-cache
