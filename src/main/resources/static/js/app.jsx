@@ -1,7 +1,6 @@
 'use strict';
 
 var React		= require('react'),
-	ReactDOM	= require('react-dom'),
 	marked		= require('marked'),
 	$			= require('jquery');
 
