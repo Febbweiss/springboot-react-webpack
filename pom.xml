@@ -21,6 +21,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<packaging.type>war</packaging.type>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<project.scm.id>jazzhub</project.scm.id>
 		<docker.image.prefix>opensaas</docker.image.prefix>
@@ -129,15 +130,6 @@
 	
 	<profiles>
 		<profile>
-			<id>webapp</id>
-			<activation>
-			<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<packaging.type>war</packaging.type>
-			</properties>
-		</profile>
-		<profile>
 			<id>docker</id>
 			<properties>
 				<packaging.type>jar</packaging.type>
@@ -174,6 +166,32 @@
 					</plugin>
 	            </plugins>
             </build>
+		</profile>
+		<profile>
+			<id>production</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.eirslett</groupId>
+						<artifactId>frontend-maven-plugin</artifactId>
+						<version>0.0.29</version>
+						<configuration>
+							<workingDirectory>${project.build.directory}</workingDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+		                            <goal>npm</goal>
+		                        </goals>
+		                        <phase>generate-resources</phase>
+		                        <configuration>
+		                            <arguments>run-script prod-build</arguments>
+		                        </configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 	</profiles>
 	
