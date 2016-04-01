@@ -28,9 +28,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-  	"dev": "webpack-dev-server --hot --inline --devtool eval --progress --colors --content-base build --port 9999",
-  	"dev-build": "webpack -d --progress --colors",
-  	"prod-build": "webpack -d -p --colors",
-    "watch": "webpack --watch -d"
+  	"watch": "NODE_ENV=development webpack-dev-server --hot --inline",
+  	"dev-build": "NODE_ENV=development webpack --d --progress --colors",
+  	"prod-build": "webpack -d -p --colors"
   }
 }

@@ -5,7 +5,8 @@ var path				= require('path'),
 	HtmlWebpackPlugin	= require('html-webpack-plugin');
 
 var source_dir = __dirname + '/src/main/resources/static',
-	node_dir = __dirname + '/node_modules';
+	node_dir = __dirname + '/node_modules',
+	dev_port = 9090;
 
 var config = {
     entry: {
@@ -19,7 +20,7 @@ var config = {
     cache: true,
     debug: true,
     output: {
-        path: './target/classes/static',
+        path: __dirname + '/target/classes/static',
         filename: 'js/[name].bundle.js',
         publicPath: '/'
     },
@@ -33,6 +34,10 @@ var config = {
         	hash: true
         })
     ],
+    devServer: {
+        port: dev_port,
+        publicPath: 'http://localhost:' + dev_port + '/'
+    },
     module: {
         loaders: [
 			{
@@ -81,5 +86,11 @@ var config = {
     	removeAttributeQuotes: false,
     }
 };
+
+var env = process.env.NODE_ENV;
+
+if (env === 'development') {
+	config.output.publicPath = 'http://localhost:' + dev_port + '/';
+}
 
 module.exports = config;
