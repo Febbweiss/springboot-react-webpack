@@ -9,7 +9,7 @@
 	<packaging>${packaging.type}</packaging>
 
 	<scm>
-		<developerConnection>scm:git:TOFILL</developerConnection>
+		<developerConnection>scm:git:https://github.com/Febbweiss/springboot-react-webpack</developerConnection>
 	</scm>
   
 	<parent>
