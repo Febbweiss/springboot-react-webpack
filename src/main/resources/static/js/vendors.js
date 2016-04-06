@@ -1,7 +1,5 @@
-"use strict";
+import 'react';
+import 'react-dom';
+import 'jquery';
 
-require('react');
-require('react-dom');
-require('jquery');
-
-require('bootstrap/dist/css/bootstrap.css');
+import 'bootstrap/dist/css/bootstrap.css';

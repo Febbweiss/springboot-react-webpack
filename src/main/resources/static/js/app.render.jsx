@@ -1,32 +1,27 @@
-"use strict";
-
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
-import App from './app.jsx';
-import $ from 'jquery';
+import CommentBox from './comment_box.jsx';
 
+import 'bootstrap/dist/css/bootstrap.css';
+import '../css/comments.css';
+import '../css/comments.less';
 
-require('bootstrap/dist/css/bootstrap.css');
-require('../css/comments.css');
-require('../css/comments.less');
-
-global.renderClient = function (comments) {
-    var data = comments || [];
-    ReactDOM.render(
-		<App.CommentBox data={data} url="/api/comments" pollInterval={2000}/>,
-		document.getElementById('content')
-	);
+global.renderClient = function renderClient(comments) {
+  const data = comments || [];
+  ReactDOM.render(
+	<CommentBox data={data} url="/api/comments" pollInterval={2000} />,
+	document.getElementById('content')
+  );
 };
 
-global.renderServer = function (comments) {
-    var data = Java.from(comments);
-    return ReactDOMServer.renderToString(
-    	<App.CommentBox data={data} url="/api/comments" pollInterval={2000} />
-    );
+global.renderServer = function renderServer(comments) {
+  const data = Java.from(comments);
+  return ReactDOMServer.renderToString(
+	<CommentBox data={data} url="/api/comments" pollInterval={2000} />
+  );
 };
 
-if( !global.nashorn ) {
-	renderClient(initialData);
-};
+if (!global.nashorn) {
+  global.renderClient(global.initialData);
+}

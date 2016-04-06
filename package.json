@@ -2,7 +2,7 @@
   "name": "springboot-react-webpack-demo",
   "version": "1.0.0",
   "dependencies": {
-  	"bootstrap": "^3.3.6",
+    "bootstrap": "^3.3.6",
     "jquery": "^2.2.2",
     "marked": "^0.3.5",
     "react": "^0.14.7",
@@ -10,10 +10,15 @@
   },
   "devDependencies": {
     "babel-core": "^6.7.4",
+    "babel-eslint": "^6.0.2",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
+    "eslint": "^2.5.3",
+    "eslint-config-airbnb": "^6.2.0",
+    "eslint-loader": "^1.3.0",
+    "eslint-plugin-react": "^4.2.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
@@ -27,8 +32,9 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-  	"watch": "NODE_ENV=development webpack-dev-server --hot --inline",
-  	"dev-build": "NODE_ENV=development webpack --d --progress --colors",
-  	"prod-build": "webpack -d -p --colors"
+    "dev-build": "NODE_ENV=development webpack --d --progress --colors",
+    "lint": "eslint --ignore-pattern **/nashorn-*.js --ext .js,.jsx src/main/resources/static/js/**",
+    "prod-build": "webpack -d -p --colors",
+    "watch": "NODE_ENV=development webpack-dev-server --hot --inline"
   }
 }

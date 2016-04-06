@@ -39,6 +39,13 @@ var config = {
         publicPath: 'http://localhost:' + dev_port + '/'
     },
     module: {
+    	preLoaders: [
+			{
+				test: /\.jsx$|\.js$/,
+				loader: 'eslint-loader',
+				include: __dirname + '/src/main/resources/static/js'
+			}
+       ],
         loaders: [
 			{
 			    test: /\.jsx?$/,
@@ -83,7 +90,7 @@ var config = {
         return [];
     },
     htmlLoader: {
-    	removeAttributeQuotes: false,
+    	removeAttributeQuotes: false
     }
 };
 
