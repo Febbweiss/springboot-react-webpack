@@ -23,7 +23,7 @@
 		<packaging.type>war</packaging.type>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<project.scm.id>github</project.scm.id>
-		<docker.image.prefix>cloudfoundry</docker.image.prefix>
+		<docker.image.prefix>pavnay</docker.image.prefix>
 	</properties>
 
 	<dependencies>
