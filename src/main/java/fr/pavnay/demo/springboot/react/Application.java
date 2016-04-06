@@ -1,4 +1,4 @@
-package com.opengroupe.cloud.saas;
+package fr.pavnay.demo.springboot.react;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.opengroupe.cloud.saas.util;
+package fr.pavnay.demo.springboot.react.util;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package com.opengroupe.cloud.saas.web;
+package fr.pavnay.demo.springboot.react.web;
 
 import java.util.List;
 
@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.opengroupe.cloud.saas.domain.Comment;
-import com.opengroupe.cloud.saas.service.CommentService;
-import com.opengroupe.cloud.saas.util.JavaScriptEngine;
+
+import fr.pavnay.demo.springboot.react.domain.Comment;
+import fr.pavnay.demo.springboot.react.service.CommentService;
+import fr.pavnay.demo.springboot.react.util.JavaScriptEngine;
 
 @Controller
 public class ViewController {

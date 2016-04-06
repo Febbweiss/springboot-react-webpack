@@ -1,4 +1,4 @@
-package com.opengroupe.cloud.saas.rest;
+package fr.pavnay.demo.springboot.react.rest;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.opengroupe.cloud.saas.domain.Comment;
-import com.opengroupe.cloud.saas.service.CommentService;
+import fr.pavnay.demo.springboot.react.domain.Comment;
+import fr.pavnay.demo.springboot.react.service.CommentService;
 
 @RestController
 public class CommentController {

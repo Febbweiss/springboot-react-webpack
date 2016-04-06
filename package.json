@@ -1,7 +1,6 @@
 {
-  "name": "catalog-ui",
+  "name": "springboot-react-webpack-demo",
   "version": "1.0.0",
-  "description": "BFF demo",
   "dependencies": {
   	"bootstrap": "^3.3.6",
     "jquery": "^2.2.2",

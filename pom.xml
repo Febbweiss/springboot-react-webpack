@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.opengroupe.cloud.saas</groupId>
-	<artifactId>catalog-ui</artifactId>
+	<groupId>fr.pavnay</groupId>
+	<artifactId>springboot-react-webpack-demo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>UI service project</name>
-	<description>Default tools to build UI BFF</description>
+	<description>A demo project with Spring Boot, React and Webpack</description>
 	<packaging>${packaging.type}</packaging>
 	<url>http://www.open-groupe.com</url>
 

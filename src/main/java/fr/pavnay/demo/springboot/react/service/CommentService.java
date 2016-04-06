@@ -1,4 +1,4 @@
-package com.opengroupe.cloud.saas.service;
+package fr.pavnay.demo.springboot.react.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Component;
 
-import com.opengroupe.cloud.saas.domain.Comment;
+import fr.pavnay.demo.springboot.react.domain.Comment;
 
 @Component
 public class CommentService {

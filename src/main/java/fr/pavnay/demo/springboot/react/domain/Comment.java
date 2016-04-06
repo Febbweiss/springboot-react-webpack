@@ -1,4 +1,4 @@
-package com.opengroupe.cloud.saas.domain;
+package fr.pavnay.demo.springboot.react.domain;
 
 public class Comment {
 
