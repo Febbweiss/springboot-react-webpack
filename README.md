@@ -21,12 +21,14 @@ There are 3 profiles :
 To launch this project, just use the following command line :
 
 In development mode :
+```
 mvn clean spring-boot:run
 npm run watch
-
+```
 In production mode :
+```
 mvn clean spring-boot:run -P production
-
+```
 Without a profile, you have to run the webpack watcher to deliver client resources. With the _production_ profile, no needs to launch the wepback watcher.
 
 ## Configuration
