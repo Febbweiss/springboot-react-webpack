@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
   	"bootstrap": "^3.3.6",
-    "jquery": "^2.2.2",
+    "jquery": "^3.0.0",
     "marked": "^0.3.5",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
@@ -27,8 +27,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-  	"watch": "NODE_ENV=development webpack-dev-server --hot --inline",
-  	"dev-build": "NODE_ENV=development webpack --d --progress --colors",
+  	"watch": "set NODE_ENV=development && webpack-dev-server --hot --inline",
+  	"dev-build": "set NODE_ENV=development && webpack --d --progress --colors",
   	"prod-build": "webpack -d -p --colors"
   }
 }
